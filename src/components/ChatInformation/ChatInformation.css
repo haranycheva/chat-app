@@ -24,4 +24,5 @@
 
 .chat-inf__date{
     font-size: 14px;
+    color: var(--primary-text-color);
 }
