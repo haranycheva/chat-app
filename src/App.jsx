@@ -10,13 +10,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/">
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<Registration/>}/>
-          <Route path=":userId" element={<Messenger/>}>
+          <Route path="mychats" element={<Messenger/>}>
             <Route path=":chatId" />
           </Route>
-        </Route>
       </Routes>
     </>
   );
