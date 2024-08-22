@@ -1,0 +1,27 @@
+.chat-inf__wrapp {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 10px 30px 30px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.chat-inf__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: calc(100% - (45px + 15px));
+}
+
+.chat-inf__name{
+    margin-bottom: 5px;
+    color: var(--primary-text-color);
+}
+
+.chat-inf__last-message{
+    font-size: 16px;
+}
+
+.chat-inf__date{
+    font-size: 14px;
+}
