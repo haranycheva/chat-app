@@ -31,6 +31,7 @@
 .chat__message-input-wrapp {
   padding: 30px;
   position: relative;
+  border-top: 1px solid var(--gray-300);
   background-color: var(--gray-100);
 }
 

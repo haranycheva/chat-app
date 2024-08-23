@@ -5,9 +5,8 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <BrowserRouter basename="/chat-app/">
       <App />
     </BrowserRouter>
-  </StrictMode>
+
 );

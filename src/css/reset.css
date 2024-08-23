@@ -92,6 +92,11 @@ ul {
   list-style: none;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 /* tables still need 'cellspacing="0"' in the markup */
 table {
   border-collapse: separate;

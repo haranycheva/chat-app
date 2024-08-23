@@ -6,9 +6,9 @@ function ChatList() {
     <div className="chats__wrapp">
       <h2 className="chats__title">Chats</h2>
       <ul className="chats__list">
-          <ChatInformation/>
-          <ChatInformation/>
-          <ChatInformation/>
+          <ChatInformation chat={{id: "1"}}/>
+          <ChatInformation chat={{id: '2'}}/>
+          <ChatInformation chat={{id: '3'}}/>
       </ul>
       <button className="chats__add">+</button>
     </div>
