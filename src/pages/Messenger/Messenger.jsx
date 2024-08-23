@@ -5,7 +5,7 @@ import ChatList from "../../components/ChatList/ChatList"
 
 function Messenger() {
   return (
-    <div>
+    <div className="messenger">
         <div className="user-nav-wrapp">
           <TopMenu/>
           <ChatList/>

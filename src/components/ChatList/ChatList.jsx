@@ -3,13 +3,14 @@ import "./ChatList.css"
 
 function ChatList() {
   return (
-    <div>
+    <div className="chats__wrapp">
       <h2 className="chats__title">Chats</h2>
-      <ul>
+      <ul className="chats__list">
           <ChatInformation/>
           <ChatInformation/>
           <ChatInformation/>
       </ul>
+      <button className="chats__add">+</button>
     </div>
   )
 }

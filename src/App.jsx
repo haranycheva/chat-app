@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Registration from "./pages/Registration";
 import Messenger from "./pages/Messenger/Messenger";
+import ChatElement from "./components/ChatElement/ChatElement";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<Registration/>}/>
           <Route path="mychats" element={<Messenger/>}>
-            <Route path=":chatId" />
+            <Route path=":chatId" element={<ChatElement/>}/>
           </Route>
       </Routes>
     </>

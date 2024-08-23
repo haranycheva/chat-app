@@ -1,0 +1,30 @@
+.message {
+  display: flex;
+  gap: 15px;
+}
+
+.message__inf-wrapp {
+  display: flex;
+  flex-direction: column;
+}
+
+.message__text {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--gray-500);
+}
+
+.my-message {
+  justify-content: end;
+}
+
+.my-message .message__inf-wrapp {
+  align-items: end;
+}
+
+.my-message .message__text {
+  background-color: var(--gray-100);
+  color: var(--primary-text-color);
+}

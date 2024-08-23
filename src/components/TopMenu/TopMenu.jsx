@@ -6,7 +6,7 @@ function TopMenu() {
   return (
     <div className="top-menu__container">
       <div className="top-menu__user-inf-wrapper">
-        <UserIcon imgPath={UserAvatar} isOnline={false}/>
+        <UserIcon imgPath={UserAvatar} isOnline={true}/>
         <button className="top-menu__logout-btn">Log Out</button>
       </div>
       <label className="top-menu__input-wrapp" htmlFor="chat-search">

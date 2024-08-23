@@ -1,6 +1,28 @@
+.chats__wrapp{
+    position: relative;
+    flex-grow: 1;
+    padding-top: 40px;
+    border-right: 1px solid var(--gray-300);
+}
 
 .chats__title{
-    margin: 40px 0 20px 30px;
+    margin: 0px 0 20px 30px;
     font-size: 24px;
     color: var(--accent-color);
+}
+
+.chats__list{
+    height: calc(100% - 44px);
+}
+
+.chats__add{
+    position: fixed;
+    bottom: 5%;
+    left: 30px;
+    padding: 8px 20px;
+    border: transparent;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    font-size: 36px;
+    color: var(--gray-0);
 }

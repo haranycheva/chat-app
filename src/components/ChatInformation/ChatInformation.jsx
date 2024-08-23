@@ -5,7 +5,7 @@ import UserAvatar from "../../assets/user.png";
 function ChatInformation({chat}) {
   return (
     <li className='chat-inf__wrapp'>
-      <UserIcon imgPath={UserAvatar} isOnline={true}/>
+      <UserIcon imgPath={UserAvatar} isOnline={false}/>
       <div className='chat-inf__details'>
         <div>
             <h3 className='chat-inf__name'>Alice Freeman</h3>

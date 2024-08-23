@@ -1,3 +1,11 @@
+.messenger{
+    display: flex;
+}
+
+
 .user-nav-wrapp{
     width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

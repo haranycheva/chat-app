@@ -6,6 +6,10 @@
   border-bottom: 2px solid var(--gray-100);
 }
 
+.chat-inf__wrapp:hover {
+  background-color: var(--gray-50);
+}
+
 .chat-inf__details {
   display: flex;
   justify-content: space-between;
