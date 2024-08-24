@@ -1,0 +1,12 @@
+.error__wrapp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.error__title{
+    color: var(--primary-text-color);
+    font-size: 48px;
+    margin: 0 50px 20px 0;
+}

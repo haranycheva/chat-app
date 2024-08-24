@@ -1,0 +1,12 @@
+.select-chat__wrapp{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 70px;
+}
+
+.select-chat__title{
+    color: var(--primary-text-color);
+    font-size: 36px;
+}
