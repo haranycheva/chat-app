@@ -20,13 +20,18 @@
 }
 
 .chat__message-list {
+  max-height: calc(100vh - 199px);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   background-color: var(--gray-50);
+  overflow-y:scroll;
 }
+.chat__message-list::-webkit-scrollbar {
+    display: none;
+  }
 
 .chat__message-input-wrapp {
   padding: 30px;

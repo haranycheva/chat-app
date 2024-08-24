@@ -13,7 +13,14 @@
 
 .chats__list{
     height: calc(100% - 44px);
+    max-height: calc(100vh - 250px);
+    padding-bottom: 40px;
+    overflow-y:scroll;
 }
+
+.chats__list::-webkit-scrollbar {
+    display: none;
+  }
 
 .chats__add{
     position: fixed;

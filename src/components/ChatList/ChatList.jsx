@@ -9,6 +9,12 @@ function ChatList() {
           <ChatInformation chat={{id: "1"}}/>
           <ChatInformation chat={{id: '2'}}/>
           <ChatInformation chat={{id: '3'}}/>
+          <ChatInformation chat={{id: "1"}}/>
+          <ChatInformation chat={{id: '2'}}/>
+          <ChatInformation chat={{id: '3'}}/>
+          <ChatInformation chat={{id: "1"}}/>
+          <ChatInformation chat={{id: '2'}}/>
+          <ChatInformation chat={{id: '3'}}/>
       </ul>
       <button className="chats__add">+</button>
     </div>
