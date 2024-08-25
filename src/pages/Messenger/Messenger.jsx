@@ -3,12 +3,12 @@ import { Outlet } from "react-router-dom"
 import TopMenu from "../../components/TopMenu/TopMenu"
 import ChatList from "../../components/ChatList/ChatList"
 
-function Messenger() {
+function Messenger({setModalName}) {
   return (
     <div className="messenger">
         <div className="user-nav-wrapp">
           <TopMenu/>
-          <ChatList/>
+          <ChatList setModalName={setModalName}/>
         </div>
         <Outlet/>
     </div>

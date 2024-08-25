@@ -1,0 +1,46 @@
+.modal-wrapp__back {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.5s var(--cube);
+}
+
+.modal-wrapp__content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 400px;
+  padding: 30px;
+  background-color: var(--gray-0);
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: all 0.5s var(--cube);
+  outline: 1px solid transparent;
+}
+
+.modal-wrapp__back.active {
+  opacity: 1;
+}
+
+.modal-wrapp__back.active .modal-wrapp__content {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.modal-wrapp__close-btn {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: transparent;
+  border: transparent;
+  font-size: 36px;
+  color: var(--accent-color);
+}

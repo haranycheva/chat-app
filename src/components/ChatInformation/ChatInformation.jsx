@@ -4,7 +4,6 @@ import UserAvatar from "../../assets/user.png";
 import { NavLink } from 'react-router-dom';
 
 function ChatInformation({chat}) {
-  console.log(chat.id);
   
   return (
     <li>

@@ -7,8 +7,6 @@
 
 .chats__title{
     margin: 0px 0 20px 30px;
-    font-size: 24px;
-    color: var(--accent-color);
 }
 
 .chats__list{

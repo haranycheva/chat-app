@@ -1,0 +1,28 @@
+.add-chat__form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.add-chat__input {
+  padding: 12px 10px;
+  text-align: center;
+  border: transparent;
+  border-bottom: 2px solid var(--gray-300);
+  font-size: 24px;
+  width: 100%;
+}
+
+.add-chat__btn {
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 24px;
+  }
+
+  .add-chat__title {
+    font-weight: 700;
+    font-size: 36px;
+  }

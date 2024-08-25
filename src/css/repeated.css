@@ -1,0 +1,18 @@
+.btn {
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid var(--accent-color);
+    transition: all 200ms;
+    background-color: var(--gray-0);
+    color: var(--accent-color);
+  }
+  
+  .btn:hover{
+    background-color: var(--accent-color);
+    color: var(--gray-0);
+  }
+
+  .title{
+    font-size: 24px;
+    color: var(--accent-color);
+}
