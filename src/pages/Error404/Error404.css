@@ -8,5 +8,5 @@
 .error__title{
     color: var(--primary-text-color);
     font-size: 48px;
-    margin: 0 50px 20px 0;
+    margin-bottom: 50px;
 }
