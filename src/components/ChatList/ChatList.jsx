@@ -10,7 +10,7 @@ function ChatList({setModalName}) {
           <ChatInformation chat={{id: '2'}}/>
           <ChatInformation chat={{id: '3'}}/>
       </ul>
-      <button className="chats__add" onClick={() => setModalName("addChat")}>+</button>
+      <button className="chats__add btn" onClick={() => setModalName("addChat")}>+</button>
     </div>
   )
 }

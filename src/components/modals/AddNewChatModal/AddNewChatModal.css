@@ -16,6 +16,14 @@
   width: 100%;
 }
 
+.add-chat__input.error{
+    border-color: var(--red-100);
+    color: var(--red-100);
+}
+
+.add-chat__input.error::placeholder{
+    color: var(--red-100);
+}
 .add-chat__btn {
     padding: 10px;
     border-radius: 25px;
@@ -25,4 +33,22 @@
   .add-chat__title {
     font-weight: 700;
     font-size: 36px;
+  }
+
+  .add-chat__input-wrapp{
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .add-chat__error{
+    position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  color: var(--red-100);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 1.8px;
+  text-align: center;
+  transform: translate(-50%, 50%);
   }

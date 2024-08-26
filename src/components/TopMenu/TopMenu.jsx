@@ -6,7 +6,10 @@ function TopMenu() {
   return (
     <div className="top-menu__container">
       <div className="top-menu__user-inf-wrapper">
-        <UserIcon imgPath={UserAvatar} isOnline={true}/>
+        <div className="top-menu__about-user">
+          <UserIcon imgPath={UserAvatar} isOnline={true} />
+          <h2 className="title top-menu__user-name">User Name</h2>
+        </div>
         <button className="btn">Log Out</button>
       </div>
       <label className="top-menu__input-wrapp" htmlFor="chat-search">

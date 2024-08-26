@@ -25,9 +25,7 @@
     bottom: 5%;
     left: 30px;
     padding: 8px 20px;
-    border: transparent;
+    border: 3px solid var(--accent-color);
     border-radius: 50%;
-    background-color: var(--accent-color);
     font-size: 36px;
-    color: var(--gray-0);
 }
