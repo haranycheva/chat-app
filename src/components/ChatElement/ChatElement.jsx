@@ -32,7 +32,10 @@ function ChatElement() {
   const chats = useSelector(selectAllChats);
   const chat = chats.filter((chat) => chat._id === chatId)[0];
   console.log(chat);
+  // if(chat){
+  //   chat.message = chat.message.sort((a, b) => Number(a.date) - Number(b.date))
 
+  // }
   useEffect(() => {
     const messageList = document.getElementById("message-list");
     if (messageList) {
@@ -46,12 +49,11 @@ function ChatElement() {
         <h2 className="chat__name">{`${chat.firstName} ${chat.secondName}`}</h2>
       </div>
       <ul className="chat__message-list" id="message-list">
-      {/* {chat.message.length ? chat.message.sort(() => )} */}
       </ul>
       <Formik
         initialValues={{ message: "" }}
         onSubmit={async ({message}, { resetForm }) => {
-          dispatch(sendMessage({chatId, message: {message, date: Date.now()}}))
+          dispatch(sendMessage({chatId, message: {message, date: String(Date.now())}}))
           resetForm({ message: "" });
         }}
         validationSchema={schemaValidation}

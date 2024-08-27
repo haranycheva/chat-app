@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://6f01-46-164-129-202.ngrok-free.app";
+axios.defaults.baseURL = "https://fa5f-176-37-162-35.ngrok-free.app";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
