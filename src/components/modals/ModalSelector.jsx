@@ -1,13 +1,16 @@
 import AddNewChatModal from "./AddNewChatModal/AddNewChatModal";
-import "./ModalSelector.css"
+import LogoutModal from "./LogoutModal/LogoutModal";
+import "./ModalSelector.css";
 
-function ModalSelector({modalName, closeModal}) {
+function ModalSelector({ modalName, closeModal }) {
   switch (modalName) {
     case "addChat":
-        return <AddNewChatModal onClose={closeModal}/>
+      return <AddNewChatModal onClose={closeModal} />;
+    case "logout":
+      return <LogoutModal onClose={closeModal} />;
     default:
-        return <></>
+      return <></>;
   }
 }
 
-export default ModalSelector
+export default ModalSelector;

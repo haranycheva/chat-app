@@ -1,26 +1,33 @@
-import './ChatInformation.css'
+import "./ChatInformation.css";
 import UserIcon from "../UserIcon/UserIcon";
 import UserAvatar from "../../assets/user.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import DotSvg from "../../assets/dots.svg"
 
-function ChatInformation({chat}) {
-  
+function ChatInformation({ chat }) {
   return (
-    <li>
-      <NavLink className="chat-inf__link" to={chat.id}>
-        <div className='chat-inf__wrapp'>
-          <UserIcon imgPath={UserAvatar} isOnline={false}/>
-          <div className='chat-inf__details'>
+    <li >
+      <NavLink className="chat-inf__link" to={chat._id}>
+        <div className="chat-inf__wrapp">
+          <UserIcon imgPath={UserAvatar} isOnline={true} />
+          <div className="chat-inf__details">
             <div>
-                <h3 className='chat-inf__name'>Alice Freeman</h3>
-                <p className='chat-inf__last-message'>How was your meeting?</p>
+              <h3 className="chat-inf__name">{`${chat.firstName} ${chat.secondName}`}</h3>
+              <p className="chat-inf__last-message">How was your meeting?</p>
             </div>
-            <p className='chat-inf__date'>Aug, 17, 2022</p>
+            <div>
+              <p className="chat-inf__date">Aug, 17, 2022</p>
+              {/* <button className="chat-inf_btn">
+                <svg  height="30px" width="30px">
+                  <use href={`${DotSvg}#dots`}/>
+                </svg>
+              </button> */}
+            </div>
           </div>
         </div>
       </NavLink>
     </li>
-  )
+  );
 }
 
-export default ChatInformation
+export default ChatInformation;

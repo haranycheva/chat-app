@@ -2,7 +2,7 @@ import "./TopMenu.css";
 import UserAvatar from "../../assets/user.png";
 import UserIcon from "../UserIcon/UserIcon";
 
-function TopMenu() {
+function TopMenu({setModalName}) {
   return (
     <div className="top-menu__container">
       <div className="top-menu__user-inf-wrapper">
@@ -10,7 +10,7 @@ function TopMenu() {
           <UserIcon imgPath={UserAvatar} isOnline={true} />
           <h2 className="title top-menu__user-name">User Name</h2>
         </div>
-        <button className="btn">Log Out</button>
+        <button className="btn" onClick={() => setModalName("logout")}>Log Out</button>
       </div>
       <label className="top-menu__input-wrapp" htmlFor="chat-search">
         <input
