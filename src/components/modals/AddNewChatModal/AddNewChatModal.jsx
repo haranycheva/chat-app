@@ -7,7 +7,7 @@ import { addChat } from "../../../fetch";
 
 const schemaValidation = Yup.object({
   firstName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The first name is required"),
-  secondName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The first name is required"),
+  secondName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The second name is required"),
 });
 
 function AddNewChatModal({ onClose }) {
@@ -16,7 +16,7 @@ function AddNewChatModal({ onClose }) {
     <ModalWrapper onClose={onClose}>
       <Formik
         initialValues={{ firstName: "", secondName: "" }}
-        onSubmit={async (values, { resetForm }) => {
+        onSubmit={(values, { resetForm }) => {
           dispatch(addChat(values));
           onClose();
           resetForm({ firstName: "", secondName: "" });

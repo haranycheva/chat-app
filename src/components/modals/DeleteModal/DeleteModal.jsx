@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { deleteChat, deleteMessage } from "../../../fetch";
 
 function DeleteModal({ id, onClose, chatId, type }) {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <ModalWrapper onClose={onClose}>
       <div className="delete__wrapp">
@@ -17,12 +17,13 @@ function DeleteModal({ id, onClose, chatId, type }) {
               onClick={() => {
                 switch (type) {
                   case "message":
-                    dispatch(deleteMessage({messageId: id, chatId}))
-                    return
+                    dispatch(deleteMessage({ messageId: id, chatId }));
+                    break;
                   case "chat":
-                    dispatch(deleteChat({chatId: id}))
+                    dispatch(deleteChat({ chatId: id }));
+                    break;
                 }
-                onClose()
+                onClose();
               }}
               type="button"
             >
@@ -30,7 +31,11 @@ function DeleteModal({ id, onClose, chatId, type }) {
             </button>
           </li>
           <li>
-            <button className="btn delete__btn" type="button" onClick={() => onClose()}>
+            <button
+              className="btn delete__btn"
+              type="button"
+              onClick={() => onClose()}
+            >
               Cancel
             </button>
           </li>
