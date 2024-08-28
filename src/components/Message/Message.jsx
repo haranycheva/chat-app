@@ -4,11 +4,12 @@ import "./Message.css";
 import { dateTransformForMessage } from "../../functions/dateTransformForMessage";
 import { openInteractionModal } from "../../functions/openInteractionModal";
 
-function Message({ message, setModalName, setModalValues}) {
+function Message({ message, setModalName, setModalValues, chatId}) {
   return message.isMine ? (
     <li
       onContextMenu={(e) => {
-        setModalValues({id: message._id, coordinates: {x: e.pageX, y: e.pageY}})
+        setModalValues({id: message._id, coordinates: {x: e.pageX, y: e.pageY}, chatId})
+        console.log(message._id)
         openInteractionModal("message", setModalName )
       }}
       className="message my-message"

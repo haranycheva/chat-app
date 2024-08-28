@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { signIn } from "../../fetch"
 
-function Messenger({setModalName}) {
+function Messenger({setModalName, setModalValues}) {
   const { getToken } = useAuth();
   const { user, isLoaded } = useUser();
   const dispatch = useDispatch()
@@ -29,8 +29,8 @@ function Messenger({setModalName}) {
   return (
     <div className="messenger">
         <div className="user-nav-wrapp">
-          <TopMenu setModalName={setModalName}/>
-          <ChatList setModalName={setModalName}/>
+          <TopMenu setModalName={setModalName} userName={user.firstName}/>
+          <ChatList setModalValues={setModalValues} setModalName={setModalName}/>
         </div>
         <Outlet/>
     </div>

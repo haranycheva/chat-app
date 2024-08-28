@@ -13,6 +13,9 @@
   position: absolute;
   background-color: var(--gray-0);
   border-radius: 8px;
+  -webkit-box-shadow: 14px 14px 4px -12px rgba(0,0,0,0.38);
+  -moz-box-shadow: 14px 14px 4px -12px rgba(0,0,0,0.38);
+  box-shadow: 14px 14px 4px -12px rgba(0,0,0,0.38);
 }
 
 .interaction__btn {
@@ -25,7 +28,7 @@
   border: transparent;
 }
 
-.interaction__btn:hover{
-    background-color: var(--accent-color);
-    color: var(--gray-0);
+.interaction__btn:hover {
+  background-color: var(--accent-color);
+  color: var(--gray-0);
 }

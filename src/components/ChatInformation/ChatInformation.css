@@ -26,8 +26,10 @@
     color: var(--primary-text-color);
 }
 
-.chat-inf_btn{
+.chat-inf__btn{
   background-color: transparent;
+  border: none;
+  padding: 10px;
 }
 
 .chat-inf__last-message{

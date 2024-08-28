@@ -1,19 +1,16 @@
 import { useEffect } from "react";
 import "./InteractionModal.css";
 
-function InteractionModal({ id, coordinates, onClose }) {
+function InteractionModal({ coordinates, onClose, setModalName, type }) {
   const closeModal = (e) => {
-    console.log(2);
-    
     if (e?.code === "Escape" || e.target === e.currentTarget) {
       document.body.style.overflow = "auto";
       onClose();
-      //   modalWrapp.current.classList.remove("active");
-      //   setTimeout(() => {
-      //     onClose();
-      //   }, 750);
     }
   };
+  const handleDelete = () => {
+    setModalName(`delete-${type}`)
+  }
   useEffect(() => {
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", closeModal);
@@ -36,7 +33,7 @@ function InteractionModal({ id, coordinates, onClose }) {
       >
         <ul className="">
           <li>
-            <button type="button" className="interaction__btn">
+            <button type="button" className="interaction__btn" onClick={() => handleDelete()}>
               Delete
             </button>
           </li>

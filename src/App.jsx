@@ -24,7 +24,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route
             path="mychats"
-            element={<PrivaRoute redirect="/login" component={Messenger} setModalName={setModalName}/>}
+            element={<PrivaRoute setModalValues={setModalValues} redirect="/login" component={Messenger} setModalName={setModalName}/>}
           >
             <Route index element={<PleaseSelectChat />} />
             <Route path=":chatId" element={<ChatElement setModalName={setModalName} setModalValues={setModalValues}/>} />
@@ -35,6 +35,7 @@ function App() {
       <ModalSelector
         modalName={modalName}
         modalValues={modalValues}
+        setModalName={setModalName}
         closeModal={() => {
           setModalName("");
         }}

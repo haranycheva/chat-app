@@ -4,7 +4,7 @@ export const openInteractionModal = (componentType, setModalName) => {
       setModalName("message");
       return
     case "chat":
-      setModalName("interactionChat");
+      setModalName("chat");
     default:
       break;
   }

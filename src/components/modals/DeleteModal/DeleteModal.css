@@ -1,0 +1,19 @@
+.delete__wrapp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+    align-items: center;
+    height: 100%;
+}
+
+.delete__btn-list{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.delete__btn{
+    padding: 15px;
+    font-size: 20px;
+}

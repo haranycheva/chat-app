@@ -1,4 +1,4 @@
-const monthNames = [
+const monthArr = [
     "Jan",
     "Feb",
     "Mar",
@@ -12,3 +12,12 @@ const monthNames = [
     "Nov",
     "Dec",
   ];
+
+  export const dateTransformForChat = (date) => {
+    const dateObj = new Date(Number(date));
+  const month = dateObj.getMonth();
+  const day = dateObj.getDate();
+  const year = dateObj.getFullYear();
+  return `${monthArr[month]} ${day}, ${year} `
+  };
+  

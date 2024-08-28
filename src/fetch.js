@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://2cb1-46-164-129-202.ngrok-free.app";
+axios.defaults.baseURL = "https://1a26-176-37-162-35.ngrok-free.app";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -79,3 +79,30 @@ export const sendMessage = createAsyncThunk(
       }
     }
   );
+
+  export const deleteMessage = createAsyncThunk(
+    "message/delete",
+    async ({ chatId, messageId  }, thunkApi) => {
+      try {
+        const res = await axios.delete(`/api/chats/${chatId}/${messageId}`);
+        console.log(res.data);
+        console.log( chatId, messageId)
+        return { chatId, messageId  };
+      } catch (error) {
+        return thunkApi.rejectWithValue(error);
+      }
+    }
+  );
+
+  export const deleteChat = createAsyncThunk(
+    "chat/delete",
+    async ({chatId}, thunkApi) => {
+      try {
+        const res = await axios.delete(`/api/chats/${chatId}`);
+        return res.data._id;
+      } catch (error) {
+        return thunkApi.rejectWithValue(error);
+      }
+    }
+  );
+

@@ -2,13 +2,13 @@ import "./TopMenu.css";
 import UserAvatar from "../../assets/user.png";
 import UserIcon from "../UserIcon/UserIcon";
 
-function TopMenu({setModalName}) {
+function TopMenu({setModalName, userName}) {
   return (
     <div className="top-menu__container">
       <div className="top-menu__user-inf-wrapper">
         <div className="top-menu__about-user">
           <UserIcon imgPath={UserAvatar} isOnline={true} />
-          <h2 className="title top-menu__user-name">User Name</h2>
+          <h2 className="title top-menu__user-name">{userName}</h2>
         </div>
         <button className="btn" onClick={() => setModalName("logout")}>Log Out</button>
       </div>

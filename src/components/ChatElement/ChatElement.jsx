@@ -14,20 +14,8 @@ const schemaValidation = Yup.object({
   message: Yup.string().trim().required(),
 });
 
-const messageObj = {
-  text: "How was your meeting?",
-  date: "Aug, 17, 2022",
-  isFromOtherPerson: true,
-};
-
-const messageObj2 = {
-  text: "Hello world!",
-  date: "Aug, 17, 2022",
-  isFromOtherPerson: false,
-};
-
-function ChatElement({setModalName, setModalValues}) {
-  const dispatch = useDispatch()
+function ChatElement({ setModalName, setModalValues }) {
+  const dispatch = useDispatch();
   const { chatId } = useParams();
   const chats = useSelector(selectAllChats);
   const chat = chats.filter((chat) => chat._id === chatId)[0];
@@ -44,12 +32,25 @@ function ChatElement({setModalName, setModalValues}) {
         <h2 className="chat__name">{`${chat.firstName} ${chat.secondName}`}</h2>
       </div>
       <ul className="chat__message-list" id="message-list">
-      {chat.message.map((message) => <Message setModalValues={setModalValues} setModalName={setModalName} message={message} key={message._id}/>)}
+        {chat.message.map((message) => (
+          <Message
+            setModalValues={setModalValues}
+            setModalName={setModalName}
+            message={message}
+            chatId={chatId}
+            key={message._id}
+          />
+        ))}
       </ul>
       <Formik
         initialValues={{ message: "" }}
-        onSubmit={async ({message}, { resetForm }) => {
-          dispatch(sendMessage({chatId, message: {message, date: String(Date.now())}}))
+        onSubmit={async ({ message }, { resetForm }) => {
+          dispatch(
+            sendMessage({
+              chatId,
+              message: { message, date: String(Date.now()) },
+            })
+          );
           resetForm({ message: "" });
         }}
         validationSchema={schemaValidation}

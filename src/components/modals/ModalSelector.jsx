@@ -1,17 +1,50 @@
 import AddNewChatModal from "./AddNewChatModal/AddNewChatModal";
+import DeleteModal from "./DeleteModal/DeleteModal";
 import InteractionModal from "./IneractionModal/InteractionModal";
 import LogoutModal from "./LogoutModal/LogoutModal";
 import "./ModalSelector.css";
 
-function ModalSelector({ modalName, closeModal, modalValues }) {
+function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
   switch (modalName) {
     case "addChat":
       return <AddNewChatModal onClose={closeModal} />;
     case "logout":
       return <LogoutModal onClose={closeModal} />;
     case "message":
-        const {id, coordinates} = modalValues;
-        return <InteractionModal id={id} coordinates={coordinates} onClose={closeModal} />;
+      return (
+        <InteractionModal
+          type="message"
+          coordinates={modalValues.coordinates}
+          onClose={closeModal}
+          setModalName={setModalName}
+        />
+      );
+    case "chat":
+      return (
+        <InteractionModal
+          type="chat"
+          coordinates={modalValues.coordinates}
+          onClose={closeModal}
+          setModalName={setModalName}
+        />
+      );
+    case "delete-message":
+      return (
+        <DeleteModal
+          chatId={modalValues.chatId}
+          id={modalValues.id}
+          onClose={closeModal}
+          type={"message"}
+        />
+      );
+      case "delete-chat":
+        return (
+          <DeleteModal
+            id={modalValues.id}
+            onClose={closeModal}
+            type={"chat"}
+          />
+        );
     default:
       return <></>;
   }
