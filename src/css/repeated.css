@@ -16,3 +16,17 @@
     font-size: 24px;
     color: var(--accent-color);
 }
+
+.input {
+    padding: 12px 10px;
+    text-align: center;
+    border: transparent;
+    border-bottom: 2px solid var(--gray-300);
+    font-size: 24px;
+    width: 100%;
+  }
+  
+  .input.error{
+      border-color: var(--red-100);
+      color: var(--red-100);
+  }

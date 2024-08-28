@@ -6,8 +6,12 @@ import { useDispatch } from "react-redux";
 import { addChat } from "../../../fetch";
 
 const schemaValidation = Yup.object({
-  firstName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The first name is required"),
-  secondName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The second name is required"),
+  firstName: Yup.string()
+    .matches(/^\S*$/, "No spaces are allowed")
+    .required("The first name is required"),
+  secondName: Yup.string()
+    .matches(/^\S*$/, "No spaces are allowed")
+    .required("The second name is required"),
 });
 
 function AddNewChatModal({ onClose }) {
@@ -28,7 +32,7 @@ function AddNewChatModal({ onClose }) {
             <h2 className="add-chat__title title">New Chat</h2>
             <div className="add-chat__input-wrapp">
               <Field
-                className={`${errors.firstName ? "error" : ""} add-chat__input`}
+                className={`${errors.firstName ? "error" : ""} input`}
                 name="firstName"
                 type="text"
                 placeholder="Enter first name"
@@ -41,9 +45,7 @@ function AddNewChatModal({ onClose }) {
             </div>
             <div className="add-chat__input-wrapp">
               <Field
-                className={`${
-                  errors.secondName ? "error" : ""
-                } add-chat__input`}
+                className={`${errors.secondName ? "error" : ""} input`}
                 name="secondName"
                 type="text"
                 placeholder="Enter second name"

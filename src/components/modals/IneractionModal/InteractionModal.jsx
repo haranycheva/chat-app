@@ -9,8 +9,11 @@ function InteractionModal({ coordinates, onClose, setModalName, type }) {
     }
   };
   const handleDelete = () => {
-    setModalName(`delete-${type}`)
-  }
+    setModalName(`delete-${type}`);
+  };
+  const handleChange = () => {
+    setModalName(`change-${type}`);
+  };
   useEffect(() => {
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", closeModal);
@@ -33,12 +36,20 @@ function InteractionModal({ coordinates, onClose, setModalName, type }) {
       >
         <ul className="">
           <li>
-            <button type="button" className="interaction__btn" onClick={() => handleDelete()}>
+            <button
+              type="button"
+              className="interaction__btn"
+              onClick={() => handleDelete()}
+            >
               Delete
             </button>
           </li>
           <li>
-            <button type="button" className="interaction__btn">
+            <button
+              type="button"
+              className="interaction__btn"
+              onClick={() => handleChange()}
+            >
               Change
             </button>
           </li>

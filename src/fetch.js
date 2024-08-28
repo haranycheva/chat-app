@@ -105,3 +105,16 @@ export const sendMessage = createAsyncThunk(
     }
   );
 
+  export const editMessage = createAsyncThunk(
+    "message/change",
+    async ({text, chatId, message}, thunkApi) => {
+        // console.log(text);
+        
+      try {
+        const res = await axios.put(`/api/chats/${chatId}/${message._id}`, {message: text});
+        // return res.data._id;
+      } catch (error) {
+        return thunkApi.rejectWithValue(error);
+      }
+    }
+  );
