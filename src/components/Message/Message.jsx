@@ -2,13 +2,14 @@ import UserIcon from "../UserIcon/UserIcon";
 import UserAvatar from "../../assets/user.png";
 import "./Message.css";
 import { dateTransformForMessage } from "../../functions/dateTransformForMessage";
+import { openInteractionModal } from "../../functions/openInteractionModal";
 
-function Message({ message }) {
+function Message({ message, setModalName, setModalValues}) {
   return message.isMine ? (
     <li
       onContextMenu={(e) => {
-        e.preventDefault()
-        console.log(e.type);
+        setModalValues({id: message._id, coordinates: {x: e.pageX, y: e.pageY}})
+        openInteractionModal("message", setModalName )
       }}
       className="message my-message"
     >

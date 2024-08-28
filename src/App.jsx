@@ -15,6 +15,7 @@ import { PrivaRoute } from "./components/PrivatRoute";
 
 function App() {
   const [modalName, setModalName] = useState("");
+  const [modalValues, setModalValues] = useState(null)
   return (
     <>
       <Routes>
@@ -26,13 +27,14 @@ function App() {
             element={<PrivaRoute redirect="/login" component={Messenger} setModalName={setModalName}/>}
           >
             <Route index element={<PleaseSelectChat />} />
-            <Route path=":chatId" element={<ChatElement />} />
+            <Route path=":chatId" element={<ChatElement setModalName={setModalName} setModalValues={setModalValues}/>} />
           </Route>
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
       <ModalSelector
         modalName={modalName}
+        modalValues={modalValues}
         closeModal={() => {
           setModalName("");
         }}

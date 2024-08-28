@@ -11,7 +11,7 @@ function ChatList({setModalName}) {
       <ul className="chats__list">
           {chats.map((chat) => <ChatInformation key={chat._id} chat={chat}/>)}
       </ul>
-      <button className="chats__add btn" onClick={() => setModalName("addChat")}>+</button>
+      <button type="button" className="chats__add btn" onClick={() => setModalName("addChat")}>+</button>
     </div>
   )
 }

@@ -36,6 +36,7 @@ function ModalWrapper({ onClose, children }) {
       <div className="modal-wrapp__content">
         {children}
         <button
+          type="button"
           onClick={(e) => closeModal(e)}
           id="close-btn"
           className="modal-wrapp__close-btn"

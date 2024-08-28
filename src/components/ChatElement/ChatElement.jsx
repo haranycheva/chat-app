@@ -26,7 +26,7 @@ const messageObj2 = {
   isFromOtherPerson: false,
 };
 
-function ChatElement() {
+function ChatElement({setModalName, setModalValues}) {
   const dispatch = useDispatch()
   const { chatId } = useParams();
   const chats = useSelector(selectAllChats);
@@ -44,7 +44,7 @@ function ChatElement() {
         <h2 className="chat__name">{`${chat.firstName} ${chat.secondName}`}</h2>
       </div>
       <ul className="chat__message-list" id="message-list">
-      {chat.message.map((message) => <Message message={message} key={message._id}/>)}
+      {chat.message.map((message) => <Message setModalValues={setModalValues} setModalName={setModalName} message={message} key={message._id}/>)}
       </ul>
       <Formik
         initialValues={{ message: "" }}

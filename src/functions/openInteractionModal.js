@@ -1,11 +1,10 @@
-export const openInteractionModal = (e, id, componentType, setModalName) => {
-  e.preventDefault();
+export const openInteractionModal = (componentType, setModalName) => {
   switch (componentType) {
     case "message":
-      setModalName("interactionMessage", id);
+      setModalName("message");
       return
     case "chat":
-      setModalName("interactionChat", id);
+      setModalName("interactionChat");
     default:
       break;
   }

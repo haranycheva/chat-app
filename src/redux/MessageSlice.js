@@ -19,8 +19,6 @@ export const MessagerSlice = createSlice({
         const chat = state.chats[chatIndex]
         const messageList = state.chats[chatIndex].message
         state.chats.splice(chatIndex, 1, {...chat, message: [...messageList, data.addedMessage, data.responseMessage]})
-        
-        // messageList.push(data)
       })
       .addMatcher(
         (action) => {

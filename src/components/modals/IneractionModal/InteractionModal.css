@@ -1,0 +1,31 @@
+.interaction__wrapp {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.interaction__modal {
+  height: 86px;
+  width: 150px;
+  position: absolute;
+  background-color: var(--gray-0);
+  border-radius: 8px;
+}
+
+.interaction__btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  text-align: center;
+  background-color: transparent;
+  border: transparent;
+}
+
+.interaction__btn:hover{
+    background-color: var(--accent-color);
+    color: var(--gray-0);
+}
