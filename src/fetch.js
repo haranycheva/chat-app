@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://fa5f-176-37-162-35.ngrok-free.app";
+axios.defaults.baseURL = "https://2cb1-46-164-129-202.ngrok-free.app";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -73,7 +73,7 @@ export const sendMessage = createAsyncThunk(
       try {
         const res = await axios.post(`/api/chats/${chatId}/`, message);
         console.log(res.data);
-        return res.data;
+        return {data: res.data, chatId};
       } catch (error) {
         return thunkApi.rejectWithValue(error);
       }

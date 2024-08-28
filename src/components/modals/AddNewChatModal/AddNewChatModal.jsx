@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { addChat } from "../../../fetch";
 
 const schemaValidation = Yup.object({
-  firstName: Yup.string().required("The first name is required"),
-  secondName: Yup.string().required("The first name is required"),
+  firstName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The first name is required"),
+  secondName: Yup.string().matches(/^\S*$/, 'No spaces are allowed').required("The first name is required"),
 });
 
 function AddNewChatModal({ onClose }) {

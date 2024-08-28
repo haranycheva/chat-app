@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addChat, logout, signIn, signUp } from "../fetch";
+import { addChat, logout, sendMessage, signIn, signUp } from "../fetch";
 
 export const MessagerSlice = createSlice({
   name: "message",
@@ -12,6 +12,15 @@ export const MessagerSlice = createSlice({
     builder
       .addCase(addChat.fulfilled, (state, action) => {
         state.chats.push(action.payload);
+      })
+      .addCase(sendMessage.fulfilled, (state, action) => {
+        const {data, chatId} = action.payload
+        const chatIndex = state.chats.findIndex((chat) => chat._id === chatId);
+        const chat = state.chats[chatIndex]
+        const messageList = state.chats[chatIndex].message
+        state.chats.splice(chatIndex, 1, {...chat, message: [...messageList, data.addedMessage, data.responseMessage]})
+        
+        // messageList.push(data)
       })
       .addMatcher(
         (action) => {
