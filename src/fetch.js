@@ -72,7 +72,6 @@ export const sendMessage = createAsyncThunk(
     async ({ chatId, message  }, thunkApi) => {
       try {
         const res = await axios.post(`/api/chats/${chatId}/`, message);
-        console.log(res.data);
         return {data: res.data, chatId};
       } catch (error) {
         return thunkApi.rejectWithValue(error);
