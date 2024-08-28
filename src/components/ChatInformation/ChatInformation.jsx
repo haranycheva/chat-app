@@ -11,7 +11,7 @@ function ChatInformation({ chat, setModalValues, setModalName }) {
     <li
       onContextMenu={(e) => {
         setModalValues({
-          id: chat._id,
+          thingToInteract: chat,
           coordinates: { x: e.pageX, y: e.pageY },
         });
         openInteractionModal("chat", setModalName);

@@ -8,7 +8,7 @@ function Message({ message, setModalName, setModalValues, chatId}) {
   return message.isMine ? (
     <li
       onContextMenu={(e) => {
-        setModalValues({id: message._id, coordinates: {x: e.pageX, y: e.pageY}, chatId})
+        setModalValues({thingToInteract: message, coordinates: {x: e.pageX, y: e.pageY}, chatId})
         openInteractionModal("message", setModalName )
       }}
       className="message my-message"

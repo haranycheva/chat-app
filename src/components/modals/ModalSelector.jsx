@@ -32,7 +32,7 @@ function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
       return (
         <DeleteModal
           chatId={modalValues.chatId}
-          id={modalValues.id}
+          id={modalValues.thingToInteract._id}
           onClose={closeModal}
           type={"message"}
         />
@@ -40,7 +40,7 @@ function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
       case "delete-chat":
         return (
           <DeleteModal
-            id={modalValues.id}
+            id={modalValues.thingToInteract._id}
             onClose={closeModal}
             type={"chat"}
           />
