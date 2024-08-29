@@ -20,7 +20,7 @@ function Message({ message, setModalName, setModalValues, chatId}) {
     </li>
   ) : (
     <li className="message">
-      <UserIcon imgPath={UserAvatar} isOnline={false} />
+      <UserIcon imgPath={UserAvatar} isOnline={true} />
       <div className="message__inf-wrapp">
         <p className="message__text">{message.text}</p>
         <p>{dateTransformForMessage(message.date)}</p>
