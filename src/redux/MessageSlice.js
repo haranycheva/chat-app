@@ -9,13 +9,13 @@ import {
   signUp,
 } from "../fetch";
 import { showMessegeNotification } from "../functions/showMessegeNotification";
+import toast from "react-hot-toast";
 
 export const MessagerSlice = createSlice({
   name: "message",
   initialState: {
     chats: [],
     isLoading: false,
-    error: null,
   },
   extraReducers: (builder) =>
     builder
@@ -50,6 +50,16 @@ export const MessagerSlice = createSlice({
       .addMatcher(
         (action) => {
           return (
+            action.type.endsWith("rejected")
+          );
+        },
+        (_, action) => {
+            toast.error(action.payload.message);
+        }
+      )
+      .addMatcher(
+        (action) => {
+          return (
             action.type.endsWith("signin/fulfilled") ||
             action.type.endsWith("signup/fulfilled")
           );
@@ -59,26 +69,29 @@ export const MessagerSlice = createSlice({
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith("pending"),
+        (action) => {
+          return (
+            action.type.endsWith("signin/pending") ||
+            action.type.endsWith("signup/pending")
+          );
+        },
         (state) => {
-          state.isLoading = true;
-          state.error = null;
+            state.isLoading= true
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith("rejected"),
-        (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload;
-          toast.error(action.payload.message);
+        (action) => {
+          return (
+            action.type.endsWith("signin/fulfilled") ||
+            action.type.endsWith("signup/fulfilled") ||
+            action.type.endsWith("signin/rejected") ||
+            action.type.endsWith("signup/rejected")
+          );
+        },
+        (state) => {
+            state.isLoading= false
         }
       )
-      .addMatcher(
-        (action) => action.type.endsWith("fulfilled"),
-        (state) => {
-          state.isLoading = false;
-        }
-      ),
 });
 
 export const RootReducer = MessagerSlice.reducer;

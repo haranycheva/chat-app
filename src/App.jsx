@@ -13,22 +13,47 @@ import { useState } from "react";
 import { BoundingRoute } from "./components/BoundingRoute";
 import { PrivaRoute } from "./components/PrivatRoute";
 import { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
+import { selectLoading } from "./redux/selectors";
 
 function App() {
   const [modalName, setModalName] = useState("");
-  const [modalValues, setModalValues] = useState(null)
+  const [modalValues, setModalValues] = useState(null);
   return (
     <>
       <Routes>
         <Route path="/">
-          <Route index element={<BoundingRoute redirectSuccess="/mychats" redirectFailure="/login"/>}/>
+          <Route
+            index
+            element={
+              <BoundingRoute
+                redirectSuccess="/mychats"
+                redirectFailure="/login"
+              />
+            }
+          />
           <Route path="login" element={<Login />} />
           <Route
             path="mychats"
-            element={<PrivaRoute setModalValues={setModalValues} redirect="/login" component={Messenger} setModalName={setModalName}/>}
+            element={
+              <PrivaRoute
+                setModalValues={setModalValues}
+                redirect="/login"
+                component={Messenger}
+                setModalName={setModalName}
+              />
+            }
           >
             <Route index element={<PleaseSelectChat />} />
-            <Route path=":chatId" element={<ChatElement setModalName={setModalName} setModalValues={setModalValues}/>} />
+            <Route
+              path=":chatId"
+              element={
+                <ChatElement
+                  setModalName={setModalName}
+                  setModalValues={setModalValues}
+                />
+              }
+            />
           </Route>
           <Route path="*" element={<Error404 />} />
         </Route>
@@ -41,7 +66,7 @@ function App() {
           setModalName("");
         }}
       />
-      <Toaster/>
+      <Toaster />
     </>
   );
 }

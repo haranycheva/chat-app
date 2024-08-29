@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import ChatInformation from "../ChatInformation/ChatInformation";
 import "./ChatList.css";
-import { selectAllChats } from "../../redux/selectors";
+import { selectAllChats, selectLoading } from "../../redux/selectors";
 import { useSearchParams } from "react-router-dom";
+import Loader from "../Loader.jsx/Loader";
 
 function ChatList({ setModalName, setModalValues }) {
+  const isLoading =useSelector(selectLoading);
   const chats = useSelector(selectAllChats);
   const [params] = useSearchParams();
   const chatSearch = params.get(`chatSearch`) ?? "";
@@ -17,6 +19,7 @@ function ChatList({ setModalName, setModalValues }) {
     <div className="chats__wrapp">
       <h2 className="chats__title title">Chats</h2>
       <ul className="chats__list">
+           {isLoading && <Loader/>}
         {filteredChats.map((chat) => (
           <ChatInformation
             setModalName={setModalName}

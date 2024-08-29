@@ -33,7 +33,7 @@ export const BoundingRoute = ({ redirectSuccess, redirectFailure }) => {
       }
     };
     fetchUser();
-  });
+  }, []);
   return (
     isLoaded &&
     (!!user ? (
