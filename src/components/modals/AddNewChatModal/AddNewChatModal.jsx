@@ -29,7 +29,7 @@ function AddNewChatModal({ onClose }) {
                 placeholder="Enter first name"
               />
               <ErrorMessage
-                className="add-chat__error"
+                className="error-message"
                 component="span"
                 name="firstName"
               />
@@ -42,7 +42,7 @@ function AddNewChatModal({ onClose }) {
                 placeholder="Enter second name"
               />
               <ErrorMessage
-                className="add-chat__error"
+                className="error-message"
                 component="span"
                 name="secondName"
               />

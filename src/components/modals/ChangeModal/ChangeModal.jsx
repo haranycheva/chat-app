@@ -43,7 +43,7 @@ function ChangeModal({ thingToInteract, onClose, chatId, type }) {
                     placeholder="Enter the text"
                   />
                   <ErrorMessage
-                    className="change__error"
+                    className="error-message"
                     component="span"
                     name="text"
                   />
@@ -82,7 +82,7 @@ function ChangeModal({ thingToInteract, onClose, chatId, type }) {
                     placeholder="Enter first name"
                   />
                   <ErrorMessage
-                    className="change__error"
+                    className="error-message"
                     component="span"
                     name="firstName"
                   />
@@ -95,7 +95,7 @@ function ChangeModal({ thingToInteract, onClose, chatId, type }) {
                     placeholder="Enter second name"
                   />
                   <ErrorMessage
-                    className="change__error"
+                    className="error-message"
                     component="span"
                     name="secondName"
                   />
