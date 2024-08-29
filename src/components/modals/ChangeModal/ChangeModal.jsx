@@ -20,6 +20,12 @@ function ChangeModal({ thingToInteract, onClose, chatId, type }) {
           <Formik
             initialValues={{ text: thingToInteract.text }}
             onSubmit={(values, { resetForm }) => {
+                if (
+                values.text === thingToInteract.text
+              ) {
+                onClose();
+                return;
+              }
               dispatch(
                 editMessage({
                   text: values.text,
@@ -65,6 +71,13 @@ function ChangeModal({ thingToInteract, onClose, chatId, type }) {
               secondName: thingToInteract.secondName,
             }}
             onSubmit={(values, { resetForm }) => {
+              if (
+                values.firstName === thingToInteract.firstName &&
+                values.secondName === thingToInteract.secondName
+              ) {
+                onClose();
+                return;
+              }
               dispatch(changeChat({ values, chatId: thingToInteract._id }));
               onClose();
               resetForm({ firstName: "", secondName: "" });

@@ -1,8 +1,14 @@
 import "./TopMenu.css";
 import UserAvatar from "../../assets/user.png";
 import UserIcon from "../UserIcon/UserIcon";
+import { useSearchParams } from "react-router-dom";
 
 function TopMenu({setModalName, userName}) {
+  const[params, setParams] = useSearchParams();
+  const chatSearch = params.get(`chatSearch`) ?? "";
+  const handleChange = (e) => {
+    setParams({chatSearch: e.target.value})
+  }
   return (
     <div className="top-menu__container">
       <div className="top-menu__user-inf-wrapper">
@@ -18,6 +24,8 @@ function TopMenu({setModalName, userName}) {
           type="text"
           id="chat-search"
           placeholder="Search or start a new chat"
+          onChange={handleChange}
+          value={chatSearch}
         />
       </label>
     </div>
