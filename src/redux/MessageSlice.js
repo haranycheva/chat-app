@@ -8,6 +8,7 @@ import {
   signIn,
   signUp,
 } from "../fetch";
+import { showMessegeNotification } from "../functions/showMessegeNotification";
 
 export const MessagerSlice = createSlice({
   name: "message",
@@ -20,6 +21,8 @@ export const MessagerSlice = createSlice({
     builder
       .addCase(addChat.fulfilled, (state, action) => {
         state.chats.push(action.payload);
+        console.log(action.payload);
+        
       })
       .addCase(deleteChat.fulfilled, (state, action) => {
         const chatIndex = state.chats.findIndex(
@@ -28,10 +31,11 @@ export const MessagerSlice = createSlice({
         state.chats.splice(chatIndex, 1);
       })
       .addCase(sendMessage.fulfilled, (state, action) => {
-        const {data, chatId} = action.payload;
+        const { data, chatId } = action.payload;
         const chatIndex = state.chats.findIndex((chat) => chat._id === chatId);
         const chat = state.chats[chatIndex];
-        chat.message.push(data.addedMessage, data.responseMessage)
+        chat.message.push(data.addedMessage, data.responseMessage);
+        showMessegeNotification(data.responseMessage, chat.firstName)
       })
       .addCase(deleteMessage.fulfilled, (state, action) => {
         const { chatId, messageId } = action.payload;
@@ -66,6 +70,7 @@ export const MessagerSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
+          toast.error(action.payload.message);
         }
       )
       .addMatcher(

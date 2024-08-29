@@ -12,6 +12,7 @@ import ModalSelector from "./components/modals/ModalSelector";
 import { useState } from "react";
 import { BoundingRoute } from "./components/BoundingRoute";
 import { PrivaRoute } from "./components/PrivatRoute";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [modalName, setModalName] = useState("");
@@ -40,6 +41,7 @@ function App() {
           setModalName("");
         }}
       />
+      <Toaster/>
     </>
   );
 }
