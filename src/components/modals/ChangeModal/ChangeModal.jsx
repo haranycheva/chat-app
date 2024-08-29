@@ -5,16 +5,13 @@ import "./ChangeModal.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { changeChat, editMessage } from "../../../fetch";
-import { schemaValidationMessage } from "../../../yup/schemaValidationMessage";
 import { schemaValidationChat } from "../../../yup/schemaValidationChat";
 
-const schemaValidation = Yup.object({
+const schemaValidationMessage = Yup.object({
   text: Yup.string().trim().required(),
 });
-
 function ChangeModal({ thingToInteract, onClose, chatId, type }) {
   const dispatch = useDispatch();
-  console.log(1);
 
   switch (type) {
     case "message":
