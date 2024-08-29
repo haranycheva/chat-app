@@ -50,11 +50,17 @@ function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
       return (
         <ChangeModal
           onClose={closeModal}
-          type={"chat"}
+          type={"message"}
           chatId={modalValues.chatId}
           thingToInteract={modalValues.thingToInteract}
         />
       );
+    case "change-chat":
+      <ChangeModal
+      onClose={closeModal}
+      type={"chat"}
+      thingToInteract={modalValues.thingToInteract}
+    />
     default:
       return <></>;
   }
