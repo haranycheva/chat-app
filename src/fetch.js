@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://1a26-176-37-162-35.ngrok-free.app";
+axios.defaults.baseURL = "https://e5ca-176-37-162-35.ngrok-free.app";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -55,66 +55,77 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   }
 });
 
-export const addChat = createAsyncThunk(
-  "chats/add",
-  async (chat, thunkApi) => {
+export const addChat = createAsyncThunk("chats/add", async (chat, thunkApi) => {
+  try {
+    const res = await axios.post(`/api/chats/`, chat);
+    return res.data.addedChat;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error);
+  }
+});
+
+export const sendMessage = createAsyncThunk(
+  "message/send",
+  async ({ chatId, message }, thunkApi) => {
     try {
-      const res = await axios.post(`/api/chats/`, chat);
-      return res.data.addedChat;
+      const res = await axios.post(`/api/chats/${chatId}/`, message);
+      return { data: res.data, chatId };
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }
   }
 );
 
-export const sendMessage = createAsyncThunk(
-    "message/send",
-    async ({ chatId, message  }, thunkApi) => {
-      try {
-        const res = await axios.post(`/api/chats/${chatId}/`, message);
-        return {data: res.data, chatId};
-      } catch (error) {
-        return thunkApi.rejectWithValue(error);
-      }
+export const deleteMessage = createAsyncThunk(
+  "message/delete",
+  async ({ chatId, messageId }, thunkApi) => {
+    try {
+      const res = await axios.delete(`/api/chats/${chatId}/${messageId}`);
+      console.log(res.data);
+      console.log(chatId, messageId);
+      return { chatId, messageId };
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
     }
-  );
+  }
+);
 
-  export const deleteMessage = createAsyncThunk(
-    "message/delete",
-    async ({ chatId, messageId  }, thunkApi) => {
-      try {
-        const res = await axios.delete(`/api/chats/${chatId}/${messageId}`);
-        console.log(res.data);
-        console.log( chatId, messageId)
-        return { chatId, messageId  };
-      } catch (error) {
-        return thunkApi.rejectWithValue(error);
-      }
+export const deleteChat = createAsyncThunk(
+  "chat/delete",
+  async ({ chatId }, thunkApi) => {
+    try {
+      const res = await axios.delete(`/api/chats/${chatId}`);
+      return res.data._id;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
     }
-  );
+  }
+);
 
-  export const deleteChat = createAsyncThunk(
-    "chat/delete",
-    async ({chatId}, thunkApi) => {
-      try {
-        const res = await axios.delete(`/api/chats/${chatId}`);
-        return res.data._id;
-      } catch (error) {
-        return thunkApi.rejectWithValue(error);
-      }
+export const editMessage = createAsyncThunk(
+  "message/change",
+  async ({ text, chatId, message }, thunkApi) => {
+    try {
+      const res = await axios.put(`/api/chats/${chatId}/${message._id}`, {
+        message: text,
+      });
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
     }
-  );
+  }
+);
 
-  export const editMessage = createAsyncThunk(
-    "message/change",
-    async ({text, chatId, message}, thunkApi) => {
-        // console.log(text);
-        
-      try {
-        const res = await axios.put(`/api/chats/${chatId}/${message._id}`, {message: text});
-        // return res.data._id;
-      } catch (error) {
-        return thunkApi.rejectWithValue(error);
-      }
+export const changeChat = createAsyncThunk(
+  "chat/change",
+  async ({ values, chatId }, thunkApi) => {
+    try {
+      const res = await axios.put(`/api/chats/${chatId}`, {
+        firstName: values.firstName,
+        secondName: values.secondName,
+      });
+      console.log(res.data);
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
     }
-  );
+  }
+);

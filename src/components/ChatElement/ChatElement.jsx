@@ -5,14 +5,10 @@ import Message from "../Message/Message";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllChats } from "../../redux/selectors";
 import { sendMessage } from "../../fetch";
-
-const schemaValidation = Yup.object({
-  message: Yup.string().trim().required(),
-});
+import { schemaValidationMessage } from "../../yup/schemaValidationMessage";
 
 function ChatElement({ setModalName, setModalValues }) {
   const dispatch = useDispatch();
@@ -53,7 +49,7 @@ function ChatElement({ setModalName, setModalValues }) {
           );
           resetForm({ message: "" });
         }}
-        validationSchema={schemaValidation}
+        validationSchema={schemaValidationMessage}
       >
         {() => (
           <Form>

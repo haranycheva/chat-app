@@ -13,6 +13,8 @@ function InteractionModal({ coordinates, onClose, setModalName, type }) {
   };
   const handleChange = () => {
     setModalName(`change-${type}`);
+    console.log(type);
+    
   };
   useEffect(() => {
     document.body.style.overflow = "hidden";

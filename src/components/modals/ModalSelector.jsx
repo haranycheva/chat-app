@@ -3,7 +3,6 @@ import ChangeModal from "./ChangeModal/ChangeModal";
 import DeleteModal from "./DeleteModal/DeleteModal";
 import InteractionModal from "./IneractionModal/InteractionModal";
 import LogoutModal from "./LogoutModal/LogoutModal";
-import "./ModalSelector.css";
 
 function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
   switch (modalName) {
@@ -56,11 +55,13 @@ function ModalSelector({ modalName, closeModal, modalValues, setModalName }) {
         />
       );
     case "change-chat":
-      <ChangeModal
-      onClose={closeModal}
-      type={"chat"}
-      thingToInteract={modalValues.thingToInteract}
-    />
+      return (
+        <ChangeModal
+          onClose={closeModal}
+          type={"chat"}
+          thingToInteract={modalValues.thingToInteract}
+        />
+      );
     default:
       return <></>;
   }

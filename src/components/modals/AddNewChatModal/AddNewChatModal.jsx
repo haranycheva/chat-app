@@ -1,18 +1,9 @@
 import "./AddNewChatModal.css";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { addChat } from "../../../fetch";
-
-const schemaValidation = Yup.object({
-  firstName: Yup.string()
-    .matches(/^\S*$/, "No spaces are allowed")
-    .required("The first name is required"),
-  secondName: Yup.string()
-    .matches(/^\S*$/, "No spaces are allowed")
-    .required("The second name is required"),
-});
+import { schemaValidationChat } from "../../../yup/schemaValidationChat";
 
 function AddNewChatModal({ onClose }) {
   const dispatch = useDispatch();
@@ -25,7 +16,7 @@ function AddNewChatModal({ onClose }) {
           onClose();
           resetForm({ firstName: "", secondName: "" });
         }}
-        validationSchema={schemaValidation}
+        validationSchema={schemaValidationChat}
       >
         {({ errors }) => (
           <Form className="add-chat__form">
